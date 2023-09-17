@@ -1,0 +1,374 @@
+:root {
+  --background-color: #000;
+  --background-hover: #39ff14;
+  --font-color: #008000;
+  --font-hover: #111;
+  --secondary-color: whitesmoke;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: var(--background-color);
+  font-family: sans-serif;
+}
+
+.navbar a {
+  padding: 15px;
+  display: inline-block;
+  color: var(--font-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  transition: all ease-in-out 0.3s;
+  box-shadow: 0 0 10px var(--background-hover);
+}
+
+.navbar a:hover {
+  color: #111;
+  background: var(--background-hover);
+  box-shadow: 0 0 50px (--background-hover);
+  transition: all ease-in-out 0.3s;
+}
+
+.navbar .line {
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.main-header {
+  display: flex;
+  width: 90%;
+  margin: 20px auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header h2 {
+  color: white;
+  text-shadow: 0 0 20px #39ff14;
+}
+
+.main-header input {
+  width: 400px;
+  padding: 10px;
+  box-shadow: 0 0 10px #39ff14;
+  border: none;
+  border-radius: 10px;
+}
+
+.main-header input:focus {
+  box-shadow: 0 0 30px #39ff14;
+  outline: none;
+}
+
+.note-shelf {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.note-shelf h2 {
+   color: #fff;
+   margin-left: 20px;
+}
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.note-item {
+  position: relative;
+  color: #008000;
+  border: 2px solid whitesmoke;
+  width: 280px;
+  border-radius: 10px;
+  position: relative;
+  height: 300px;
+  transition: all ease-in-out 0.3s;
+}
+
+.note-item .horizontal-line {
+  height: 3px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.note-item:hover {
+  color: #000;
+  background: #39ff14;
+  box-shadow: 0 0 50px #39ff14;
+  transition: all ease-in-out 0.4s;
+}
+
+.note-item__title,
+.note-item__date,
+.note-item__body {
+  padding: 0px 15px;
+}
+
+.note-item__title {
+  padding-top: 10px;
+}
+
+.note-item__date {
+  font-size: 12px;
+  color: lightgrey;
+  margin-top: 5px;
+}
+
+.note-item__body {
+  font-size: 14px;
+  padding: 15px;
+  font-weight: bolder;
+  line-height: 1.4em;
+}
+
+.note-item__action {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid var(--background-hover);
+}
+
+.note-item button {
+  width: 50%;
+  border: none;
+  border-right: 1px solid black;
+}
+
+.green,
+.warning {
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.7em;
+  position: relative;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.green {
+  border-bottom-right-radius: 5px;
+  color: #008000;
+}
+
+.warning {
+  border-bottom-left-radius: 5px;
+  color: #C70039;
+}
+
+.green:before,
+.warning:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: black;
+  z-index: -1;
+}
+
+.warning:before {
+  background-color: #C70039;
+}
+
+.green:before {
+  background-color: var(--font-color);
+}
+
+.green:before {
+  border-bottom-right-radius: 10px;
+}
+
+.warning:before {
+  border-bottom-left-radius: 10px;
+}
+
+.green:hover,
+.green:focus,
+.warning:hover,
+.warning:focus {
+  color: white;
+}
+
+.green:hover:before,
+.green:focus:before,
+.warning:hover:before,
+.warning:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.green:active,
+.warning:active {
+  transform: scale(0.9);
+}
+
+.btn-main-action {
+  position: fixed;
+  bottom: 5%;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--background-hover);
+}
+
+#addNote,
+#togglePage {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#addNote:hover,
+#togglePage:hover {
+  box-shadow: 0 0 20px var(--background-hover);
+  border-radius: 50%;
+}
+
+#addNote {
+  margin-top: 5px;
+}
+
+/* STYLE INPUT SECTION */
+.input-section {
+   color: white;
+   width: 600px;
+   margin: 70px auto;
+   border-radius: 10px;
+   padding: 20px;
+   border: 3px dashed var(--background-hover);
+   box-shadow: 0 0 20px var(--background-hover);
+}
+
+.input #countInputTitle {
+  display: inline-block;
+  margin: 10px 0s;
+}
+
+.input-section h2 {
+   text-align: center;
+}
+
+.input-section:hover {
+   box-shadow: 0 0 50px var(--background-hover);
+}
+
+.input-note .input {
+   display: flex;
+   flex-direction: column;
+   margin-top: 10px;
+}
+
+.input-note label {
+   margin: 5px 0;
+}
+
+.input-note .input_inline {
+   margin-top: 10px;
+}
+
+#noteBody {
+   height: 100px;
+   padding: 10px;
+}
+
+#noteTitle {
+   height: 30px;
+   padding: 5px;
+}
+
+#noteBody:focus, #noteTitle:focus {
+   outline: none;
+}
+
+#noteSubmit, #noteCancel {
+   margin-top: 10px;
+   padding: 8px 0;
+   width: 50%;
+   cursor: pointer;
+   border: none;
+   border-radius: 5px;
+   color: #fff;
+}
+
+#noteSubmit {
+   background-color: var(--background-hover);
+   box-shadow: 0 0 10px var(--background-hover);
+   font-weight: 500;
+   letter-spacing: 0.1rem;
+}
+
+#noteSubmit:hover {
+   box-shadow: 0 0 30px var(--background-hover);
+}
+
+#noteCancel {
+   background-color: #C70039;
+   box-shadow: 0 0 10px red;
+}
+
+#noteCancel:hover {
+   box-shadow: 0 0 30px red;
+   color: #000;
+}
+
+.formAction {
+   display: flex;
+   gap: 10px;
+   margin-top: 20px;
+}
+
+.not-available {
+  color: white;
+  text-align: center;
+  margin-top: 25vh;
+}
+
+
+footer {
+  margin-top: 30vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 50px #39ff14;
+}
+
+footer .footer-line {
+  height: 2px;
+  width: 100%;
+  background-color: #39ff14;
+}
+
+footer h3 {
+  color: #fff;
+  background-color: #008000;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}
